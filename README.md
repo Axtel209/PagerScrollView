@@ -5,10 +5,10 @@ Easy to use Pager based on UIScrollView
 ## Requirements
 - iOS 8+
 - Xcode 8 or above
-- Swift 3
+- Swift 4.2
 
 ## Installation
-PagerScrollView is available through CocoaPods.
+PagerScrollView is available through [CocoaPods](https://cocoapods.org).
 
 ```
 pod 'PagerScrollView'
