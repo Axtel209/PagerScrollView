@@ -5,13 +5,14 @@
 //  Created by Giorgio Doganiero on 2/21/19.
 //  Copyright © 2019 GiorgioDoganiero. All rights reserved.
 //
+
 import UIKit
 
 @objc public protocol PagerScrollViewDelegate: AnyObject {
     @objc optional func didChangePage(toPageIndex pageIndex: Int)
 }
 
-public class PagerScrollView: UIScrollView, UIScrollViewDelegate
+public class PagerScrollView: UIScrollView
 {
     //    weak public var delegate: PagerScrollViewDelegate?
     public var pagerDelegate: PagerScrollViewDelegate?
@@ -38,7 +39,10 @@ public class PagerScrollView: UIScrollView, UIScrollViewDelegate
         showsHorizontalScrollIndicator = false
     }
 
-    public func setPagerScrollView(toParentVC parent: UIViewController, pagesVC pages: [UIViewController]) {
+    public func setPagerScrollView(toParentVC parent: UIViewController, pagesVC pages: [UIViewController]?) {
+        guard let pages = pages
+            else { return }
+
         numberOfPages = pages.count
         views = ["container": self]
 
@@ -86,7 +90,11 @@ public class PagerScrollView: UIScrollView, UIScrollViewDelegate
         return Int(contentOffset.x/pageWidth)
     }
 
-    // MARK: - ScrollViewDelegate
+}
+
+// MARK: - ScrollViewDelegate
+
+extension PagerScrollView: UIScrollViewDelegate {
 
     public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let currentPage = getCurrentPage()
@@ -101,4 +109,5 @@ public class PagerScrollView: UIScrollView, UIScrollViewDelegate
 
         }
     }
+
 }
