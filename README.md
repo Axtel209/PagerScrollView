@@ -49,9 +49,9 @@ pager?.pagerDelegate = self
 > _setPagerScrollView(toParentVC: UIViewController, pages:[UIViewController]?)_
 #### *Parameters*
 **Parent View Controller**
-&nbsp;&nbsp;&nbsp;&nbsp;The parent view controller where the PagerScrollView is located.
+    The parent view controller where the PagerScrollView is located.
 **Pages**
-&nbsp;&nbsp;&nbsp;&nbsp;Array of view controller (pages) you want to add the the PagerScrollView.
+    Array of view controller (pages) you want to add the the PagerScrollView.
 ```
 pager!.setPagerScrollView(toParentVC: self, pagesVC: [red, blue])
 ```
